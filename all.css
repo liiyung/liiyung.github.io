@@ -147,60 +147,7 @@ h2 {
 
 .track-no-id3 {color:transparent!important;}
 
-#footer {
-    width:100%;
-    position:relative;
-    height:{block:IfManualInfiniteScroll}100px{/block:IfManualInfiniteScroll} {block:IfNotManualInfiniteScroll}{text:Footer Height}{/block:IfNotManualInfiniteScroll};
-    bottom:0px;
-    z-index:10;
-}
 
-.pagination {
-    z-index:50;
-    {block:IfNotHorizontal}
-    margin-top:50px;
-    margin-bottom:50px;
-    {/block:IfNotHorizontal}
-}
-
-.load-more {
-    z-index:100;
-    font-family:'{text:Body Font}';
-    left:50vw;
-    border:0;
-    padding-top:2vh;
-    padding-bottom:2vh;
-    padding-left:10vw;
-    padding-right:10vw;
-    background:#f0f0f0;
-    color:#9f9f9f;
-         -webkit-transition: 0.8s ease-in-out;
-            -moz-transition: 0.8s ease-in-out;
-                 transition: 0.8s ease-in-out;    
-}
-
-.load-more:hover {
-    background:{color:Links};
-    color:{color:Background};
-}
-
-.load-more:focus {
-    border:none;
-}
-
-#infscr-loading{
-    {block:IfNotHorizontal}
-    position:absolute;
-    margin-left:50%;
-    margin-right:50%;
-    bottom:0px;
-    {/block:IfNotHorizontal}
-}
-
-#infscr-loading img{
-    width:10px;
-    opacity:0;
-}
 
 .sticky {
   position: -webkit-sticky; /* Safari */
@@ -216,14 +163,4 @@ h2 {
     }
 }
  
-.navigation { display:none!important ; font-family:'{text:Body Font}'; font-size:12px; opacity:0.5;} 
 
-.isotope-item {z-index: 2;}
-.isotope-hidden.isotope-item {pointer-events: none;z-index: 1;}
-.isotope, .isotope .isotope-item {-webkit-transition: 0.8s ease-in-out;-moz-transition: 0.8s ease-in-out;transition: 0.8s ease-in-out;}
-.isotope {-webkit-transition-property: height, width;-moz-transition-property: height, width;transition-property: height, width;}
-.isotope .isotope-item {-webkit-transition-property:-webkit-transform, opacity;-  moz-transition-property:-moz-transform, opacity; transition-property: transform, opacity;}      
-#filters, #quicksearch {color:#aaa; background:rgba({RGBcolor:Background},1); z-index:999; -webkit-transition: 0.8s ease-in-out;-moz-transition: 0.8s ease-in-out;transition: 0.8s ease-in-out;   }
-
-.hide {display:none; }
-.active {display:block;}
