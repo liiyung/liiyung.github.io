@@ -1,0 +1,11 @@
+.navigation { display:none!important ; font-family:'{text:Body Font}'; font-size:12px; opacity:0.5;} 
+
+.isotope-item {z-index: 2;}
+.isotope-hidden.isotope-item {pointer-events: none;z-index: 1;}
+.isotope, .isotope .isotope-item {-webkit-transition: 0.8s ease-in-out;-moz-transition: 0.8s ease-in-out;transition: 0.8s ease-in-out;}
+.isotope {-webkit-transition-property: height, width;-moz-transition-property: height, width;transition-property: height, width;}
+.isotope .isotope-item {-webkit-transition-property:-webkit-transform, opacity;-  moz-transition-property:-moz-transform, opacity; transition-property: transform, opacity;}      
+#filters, #quicksearch {color:#aaa; background:rgba({RGBcolor:Background},1); z-index:999; -webkit-transition: 0.8s ease-in-out;-moz-transition: 0.8s ease-in-out;transition: 0.8s ease-in-out;   }
+
+.hide {display:none; }
+.active {display:block;}
