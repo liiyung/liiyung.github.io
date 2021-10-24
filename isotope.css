@@ -1,4 +1,35 @@
-.navigation { display:none!important ; font-family:'{text:Body Font}'; font-size:12px; opacity:0.5;} 
+
+
+#content-wrapper {
+{block:IndexPage} 
+        min-height:calc(100vh - {text:Header Height} - (2*{text:Header Top and Bottom Gap}) - {text:Footer Height} - 5vh);
+    {block:IfNotHorizontal}
+        width:100%;
+        margin-top:{text:Space between Header and Content};
+    {/block:IfNotHorizontal}
+{/block:IndexPage}
+}
+
+#content {
+        width:{select:Content Width};
+        position:absolute; margin:auto;
+}
+
+.box {
+    opacity:1.0;
+    cursor:url('{image:Cursor}'), crosshair;
+    font-family:'{text:Body Font}', '{font:Body Font}', Georgia, 'Times New Roman', Times, serif;
+    font-size:{text:Body Font Size};
+    position:relative;
+        width:calc((100% - ({text:Number of Columns} - 1)*{text:Gutter Width}px)/{text:Number of Columns});
+        opacity:1.0;
+         -webkit-transition: opacity 0.8s ease-in-out;
+            -moz-transition: opacity 0.8s ease-in-out;
+                 transition: opacity 0.8s ease-in-out;
+}
+
+.box:hover {opacity:1.0;}
+ 
 
 .isotope-item {z-index: 2;}
 .isotope-hidden.isotope-item {pointer-events: none;z-index: 1;}
@@ -15,6 +46,9 @@
 
 
 /* infinite scrolling */
+
+
+.navigation { display:none!important ; font-family:'{text:Body Font}'; font-size:12px; opacity:0.5;} 
 
 
 #footer {
