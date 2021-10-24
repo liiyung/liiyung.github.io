@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html style="cursor:url('{image:Cursor}'), crosshair !important;">
+    <head>
+		<title>Meow</title>
+		
+	
+<!--jquery-->
+<script type="text/javascript" src="https://static.tumblr.com/iuvoef7/bXomx943d/jquery-1.7.1.min.js"></script>
+<!-- isotope -->  
+  <script type="text/javascript" src="https://static.tumblr.com/iuvoef7/pGOokx1ys/isotope.js"></script>  
+
+<!--infinite scroll -->  
+  <script type="text/javascript" src="https://static.tumblr.com/iuvoef7/tIEmx9449/jquery.infinitescroll.min.js"></script>
+<!--smooth scrolling  -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.6/SmoothScroll.min.js"></script>
+<!-- smoothstate 
+<script src="https://rawgit.com/miguel-perez/smoothState.js/master/demos/csstricks/assets/js/jquery.smoothState.min.js"></script>  -->  
+<!-- images Loaded -->
+  <script type="text/javascript" src="https://static.tumblr.com/iuvoef7/9ACokx21m/imagesloaded.js"></script> 
+<!--mousewheel -->
+  <script type="text/javascript" src="https://static.tumblr.com/iuvoef7/Qt9okx233/mousewheel.js"></script>
+<!-- style my tooltips -->  
+  <script type="text/javascript" src="https://static.tumblr.com/iuvoef7/iIZol19jf/jquery.style-my-tooltips.js"></script>
+  <script type="text/css" src="https://static.tumblr.com/iuvoef7/pqtol19jl/style-my-tooltips.css"></script>
+<!-- font awesome -->
+<script type="text/javascript" src="https://static.tumblr.com/iuvoef7/Mmpokx241/fontawesome.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<!--chinese font -->
+
+
+<!--Responsive photosets--> 
+<link href="https://static.tumblr.com/qudkd6d/OcDnl99gb/style.css" rel="stylesheet" type="text/css"/>
+
+<!-- <script src="https://static.tumblr.com/iuvoef7/M7sok4zc0/photoset.js"></script> -->
+
+<!--<script src="https://static.tumblr.com/iuvoef7/6Smoskpjg/photoset06.js"></script>-->
+
+<script src="https://static.tumblr.com/iuvoef7/Eiposx8wo/photoset.js"></script>
+
+<!--resize video by shythemes-->
+<!--<script src ="//static.tumblr.com/fwgzvyf/Oj1o08f6h/shythemes.vr.js"></script>-->
+
+<!--resize video-->
+<!--<script src ="https://static.tumblr.com/zhwu5jw/n4ur0wcmi/tumblrvideoresizing.js"></script>-->
+
+
+<!--resize video-->
+<script>
+    $(document).ready(function(){
+   resizeVideos();
+});
+function resizeVideos() {
+   $('.video:not(.resized) iframe:not(.tumblr_video_iframe)').each(function(){
+       var vw = $(this).width();
+       var vh = $(this).height();
+       var scale = $(this).parents('.video').width() / vw;
+       $(this).attr({
+           width: Math.floor($(this).attr('width') * scale),
+           height: Math.floor($(this).attr('height') * scale)
+       });
+       $(this).parents('.video').addClass('resized');
+   });
+   $('.video:not(.resized) .tumblr_video_iframe').each(function(){
+       var vw = $(this).width();
+       var vh = $(this).height();
+       var scale = $(this).parents('.video').width() / vw;
+       $(this).css({
+           'transform': 'scale(' + scale + ')',
+           'transform-origin': 'center center',
+           'margin-top': vh * (scale - 1) / 2 + 'px',
+           'left' : 0 + 'px',
+           'bottom' : 0 + 'px'
+        //   'margin-left': 'auto'
+           // 'margin': vh * (scale - 1) / 2 + 'px ' + vw * (scale - 1) / 2 + 'px',
+           // 'padding-left' : - (vw * (scale - 1) / 2) + 'px',
+       });
+       $(this).parents('.tumblr_video_container').css({
+           'transform-origin': 'center center',
+          width: Math.floor(vw * ( scale + 1 ) / 2),
+          height: Math.floor(vh * ( scale + 1 ) / 2)
+       });
+       $(this).parents('.video').addClass('resized');
+   });
+}
+    
+    
+</script>
+
+
+
+
+
+
+
+
+<!--isotope.js-->
+<!--MAIN FRAMEWORK, DO NOT TOUCH-->
+
+<script>
+//main function, called isotope
+var isotope =  $(function(){
+        // filter items when filter link is clicked
+        // quick search regex
+        var qsRegex;
+        var buttonFilter;
+        var $container = $('#content');
+        var $boxes = $('.box').css('opacity','0');
+        
+        
+        $container.imagesLoaded(function(){
+            $container.isotope({ 
+                itemSelector : '.box',
+                layoutMode : 'masonry',
+                masonry: {
+                    gutter: {text:Gutter Width}
+                },
+                fitColumns: {
+                    gutter: {text:Gutter Width}
+                },
+                fitRows: {
+                    gutter: {text:Gutter Width}
+                },
+                cellsByRow: {
+                    columnWidth: 110,
+                    rowHeight: 110
+                },
+                vertical: {
+                    horizontalAlignment: 0.5,
+                },
+                masonryHorizontal: {
+                    rowHeight: 250
+                },
+                cellsByColumn: {
+                    columnWidth: 110,
+                    rowHeight: 110
+                },
+                filter: function() {
+    var $this = $(this);
+    var searchResult = qsRegex ? $this.text().match( qsRegex ) : true;
+    var buttonResult = buttonFilter ? $this.is( buttonFilter ) : true;
+    return searchResult && buttonResult;
+  }
+            });
+        $('.box').css('opacity','1.0');
+        
+        });
+
+        var captionbefore = document.getElementsByClassName('phototitle');
+        var captionafter = document.getElementsByClassName('caption');
+        var i;
+        for (i = 0; i < captionbefore.length; i++) {
+
+            var captionbeforePtag = captionbefore[i].getElementsByTagName("p");
+            for(j = 0; j < captionbeforePtag.length; j++) {
+                captionbeforePtag[j].style.display = "none";
+            }
+            
+            var captionafterH2tag = captionafter[i].getElementsByTagName("h2");
+            for(k = 0; k < captionafterH2tag.length; k++) {
+                captionafterH2tag[k].style.display = "none";
+            }
+        }
+        
+{block:IfInfiniteScroll}  
+//infinite scroll and callback
+        $container.infinitescroll({
+            navSelector  : '#page_nav', 
+            nextSelector : '#page_nav a',  
+            itemSelector : '.box',  
+            errorCallback: function(){$('.load-more').hide();}, 
+            
+            bufferPx : 1500,
+            loading: {
+                msgText: "<em></em>",    
+                finishedMsg: ' ',
+                img: 'https://i.imgur.com/qkKy8.gif'
+                        }
+        },
+        
+        // call Isotope as a callback
+        function ( newElements ) {
+            var $newElems = jQuery( newElements ).hide(); // hide to begin with
+            
+               $('.photo-slideshow').pxuPhotoset({
+       lightbox: true,
+       rounded: false,
+       gutter: ' {text:Photoset Gutter Width}px',
+       borderRadius: '0px',
+       highRes   : true,
+       captions  : true,
+       photoset: '.photo-slideshow',
+       photoWrap: '.photo-data',
+       photo: '.pxu-photo'
+   });
+            
+            $( newElements ).find('.photo-slideshow').pxuPhotoset({
+               lightbox: true,
+               rounded: false,
+               gutter: ' {text:Photoset Gutter Width}px',
+               borderRadius: '0px',
+               highRes   : true,
+               captions  : true,
+               photoset: '.photo-slideshow',
+               photoWrap: '.photo-data',
+               photo: '.pxu-photo'
+            });
+            
+            resizeVideos();
+
+            // ensure that images load before adding to masonry layout
+            $newElems.imagesLoaded(function(){
+            $newElems.fadeIn(); // fade in when ready
+            $container.isotope( 'insert', $newElems );
+            
+            $("#s-m-t-tooltip").css('z-index', '999999999');
+            });
+
+            $("#s-m-t-tooltip").css('z-index', '999999999');
+
+        });    //end isotope as callback
+        
+        
+        {block:ifManualInfiniteScroll}
+        //manual infinite scroll
+        {block:IfNotHorizontal}
+        $(window).unbind('.infscr');
+        $('.load-more').click(function(){
+        $container.infinitescroll('retrieve');
+        return false
+        });
+        {/block:IfNotHorizontal}
+        
+        $("#s-m-t-tooltip").css('z-index', '999999999');
+
+        {/block:ifManualInfiniteScroll}
+{/block:IfInfiniteScroll}        
+        
+// tag filter
+$('#filters').on( 'click', 'button', function() {
+  window.scrollTo(0,0);    
+  buttonFilter = $( this ).attr('data-filter');
+  // y coordinate at 300 to show filtered posts from top post instead of title 
+  window.scrollTo(0,350);
+  $container.isotope();
+  // y coordinate at 300 to show filtered posts from top post instead of title 
+  window.scrollTo(0,350);
+  return false
+});
+
+
+
+// // multiple filters
+// // store filter for each group
+// var filters = {};
+
+// $('#filters').on( 'click', '.button', function() {
+//   var $this = $(this);
+//   // get group key
+//   var $buttonGroup = $this.parents('.button-group');
+//   var filterGroup = $buttonGroup.attr('data-filter-group');
+//   // set filter for group
+//   filters[ filterGroup ] = $this.attr('data-filter');
+//   // combine filters
+//   var filterValue = concatValues( filters );
+//   $container.isotope({ filter: filterValue });
+// });
+
+// // flatten object by concatting values
+// function concatValues( obj ) {
+//   var value = '';
+//   for ( var prop in obj ) {
+//     value += obj[ prop ];
+//   }
+//   return value;
+// }
+
+
+// use value of search field to filter
+var $quicksearch = $('#quicksearch').keyup( debounce( function() {
+  qsRegex = new RegExp( $quicksearch.val(), 'gi' );
+  $container.isotope();
+}) );
+
+// debounce so filtering doesn't happen every millisecond
+function debounce( fn, threshold ) {
+  var timeout;
+  return function debounced() {
+    if ( timeout ) {
+      clearTimeout( timeout );
+    }
+    function delayed() {
+      fn();
+      timeout = null;
+    }
+    setTimeout( delayed, threshold || 100 );
+  };
+};
+        
+});    //ending main function
+
+$(document).ready(isotope);    
+</script>		
+ 
+<script>
+$(document).ready(function(){
+   $('.photo-slideshow').pxuPhotoset({
+       lightbox: true,
+       rounded: false,
+       gutter: ' {text:Photoset Gutter Width}px',
+       borderRadius: '0px',
+       highRes   : true,
+       captions  : true,
+       photoset: '.photo-slideshow',
+       photoWrap: '.photo-data',
+       photo: '.pxu-photo'
+   });
+});
+</script>
+
+
+<!--END OF DO NOT TOUCH-->
+
+
+
+
+
+
+
+
+<!--TUMBLR META STUFF-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- images/ files upload -->
+<meta name="image:Background" content="" />
+<meta name="image:Header" content="" />  
+
+<meta name="image:Cursor" content="https://static.tumblr.com/iuvoef7/jeMol18eo/small_white_cursor.png" />
+<meta name="image:Custom Font" content="https://static.tumblr.com/iuvoef7/mNnojgowh/jellyka_bees_antique_handwriting.ttf" />
+
+<!-- background colours -->
+<meta name="color:Background" content="#fbfbfb" />
+<meta name="color:Header Background" content="#fbfbfb" />
+
+<!-- font colours -->
+<meta name="color:Header Font" content="#000000" />
+<meta name="color:Body Font" content="#000000" />
+
+<meta name="color:Text highlight" content="#bbbbbb" />
+<meta name="color:Scrollbar" content="#fed3f2"  />
+
+<!-- tumblr preset fonts -->
+<meta name="font:Header Font" content="Arial" />
+<meta name="font:Body Font" content="Baskerville" />
+<meta name="font:Sidebar Font" content="Baskerville" />
+
+<!-- booleans --> <!-- 1=yes, 0=no -->
+<meta name="if:Head Space" content="1" />
+<meta name="if:Infinite Scroll" content="1" />
+<meta name="if:Manual Infinite Scroll" content="0" />
+
+<meta name="select:Content Width" content="30vw" />
+<meta name="select:Content Width" content="10vw" />
+<meta name="select:Content Width" content="20vw" />
+<meta name="select:Content Width" content="40vw" />
+<meta name="select:Content Width" content="50vw" />
+<meta name="select:Content Width" content="60vw" />
+<meta name="select:Content Width" content="70vw" />
+<meta name="select:Content Width" content="80vw" />
+<meta name="select:Content Width" content="90vw" />
+<meta name="select:Content Width" content="100vw" />
+
+<!-- main -->
+<meta name="text:Number of Columns" content="1" />
+<meta name="text:Space between Header and Content" content="0px" />
+<meta name="text:Gutter Width" content="100" />
+<meta name="text:Photoset Gutter Width" content="10" />
+<!-- header and footer -->
+<meta name="text:Header Height" content="350px" />
+<meta name="text:Header Width" content="100%" />
+<meta name="text:Header Top and Bottom Gap" content="0px" />
+<meta name="text:Footer Height" content="100px" />
+
+<!-- fonts -->
+<meta name="text:Header Font" content="Lora"/>
+<meta name="text:Header Font Size" content="50px" />
+<meta name="text:Body Font" content="Lora" /> 
+<meta name="text:Body Font Size" content="14px" />
+<meta name="text:Custom Font Name" content="Jellyka" />
+<!--fonts-->
+<link href='https://fonts.googleapis.com/css?family={text:Body Font}' rel='stylesheet' type='text/css'> 
+<link href='https://fonts.googleapis.com/css?family={text:Header Font}' rel='stylesheet' type='text/css'> 
+<link href='https://fonts.googleapis.com/css?family={text:Sidebar Font}' rel='stylesheet' type='text/css'> 
+
+<link rel="shortcut icon" href="{Favicon}"><link rel="alternate" type="application/rss+xml" href="{RSS}"><link href="https://static.tumblr.com/wgijwsy/k1Hm9ei8b/normalize.css" rel="stylesheet" type="text/css" />
+       
+
+
+
+<!--CSS -->
+
+    <style type="text/css">
+
+
+    </style>
+
+</head>
+	
+	
+	
+	
+	
+	
+	
+	
+	   
+	<body style="cursor:url('{image:Cursor}'), crosshair !important; ">
+<div id="wrapper">
+
+
+<!--HEADER-->
+<!--title and search/filter bar-->
+
+{block:IndexPage}    
+    <div id="header">
+    {block:IfHeadSpace}
+    <a href="{BlogURL}" style="font-size:{text:Header Font Size};">    <div style="
+    padding-top:calc(({text:Header Height} - {text:Header Font Size})/2);">{Title}    </div></a>
+    {/block:IfHeadSpace}
+    </div>
+{/block:IndexPage}   
+
+<div id="filters" class="sticky sort-by-button-group" style="margin-top:0px;">
+<p><input type="text" id="quicksearch" autocomplete="off" style="background:rgba(251,251,251, 0); text-align:center; font-size:11px; " placeholder= "Search"/></p>
+
+<!--<p class="button-group" style="padding-bottom:-5px; padding-left:5px; opacity:0.25;" data-filter-group="type">-->
+<!--<button data-filter="*" title="all"><i class="fa fa-snowflake-o"></i></button> &nbsp;-->
+<!--<button data-filter=".text" title="texts"><i class="fa fa-font"></i></button> &nbsp;-->
+<!--<button data-filter=".photo, .photoset" title="photos"><i class="fa fa-camera-retro"></i></button> &nbsp;-->
+<!--<a href="#" data-filter=".quote" title="quotes"><i class="fa fa-quote-left"></i></a> &nbsp;-->
+<!--<a href="#" data-filter=".link" title="links"><i class="fa fa-link"></i></a> &nbsp;-->
+<!--<button data-filter=".audio" title="music"><i class="fa fa-music"></i></button> &nbsp;-->
+<!--<button data-filter=".video" title="videos"><i class="fa fa-video-camera"></i></button>-->
+<!--</p>-->
+
+<p class="button-group" style="padding-bottom:20px; opacity:0.75;" data-filter-group="topics">
+<!--<button data-filter=".chinese" title="chinese">字</button>&nbsp;-->
+<button data-filter="*" title="all" style="margin-left:-10px"><img src="https://static.tumblr.com/zhwu5jw/sMOr0yewu/home.png"></button>
+<!--<button data-filter="*" title="all">all</button>-->
+<button data-filter=".intro" title="introduction" style="margin-left:-12px"><img src="https://static.tumblr.com/zhwu5jw/baor0y699/gw.gif"></button>
+<!--<button data-filter=".intro" title="introduction">intro</button>-->
+<!--<button data-filter=".NR" title="numerical">NR</button>-->
+<button data-filter=".NR" title="numerical" style="margin-left:-12px"><img src="https://static.tumblr.com/zhwu5jw/lTcr0y5yt/ns.gif"></button>
+<!--<button data-filter=".PTA" title="PTA">PTA</button>-->
+<button data-filter=".PTA" title="PTA" style="margin-left:-15px"><img src="https://static.tumblr.com/zhwu5jw/iHNr0y5l9/pulsar.gif"></button>
+<button data-filter=".gwlensing" title="gwlensing" style="margin-left:-12px"><img src="https://static.tumblr.com/zhwu5jw/np5r0y7no/lensing.gif"></button>
+<!--<button data-filter=".gwlensing" title="gwlensing">lensing</button>-->
+<button data-filter=".dm" title="darkmatter" style="margin-left:-7px"><img src="https://static.tumblr.com/zhwu5jw/fgXr0y86g/dm.gif"></button>
+<!--<button data-filter=".dm" title="darkmatter">dm</button>-->
+</p>
+</div>
+
+     
+     
+     
+
+
+<!--CONTENT -->
+<!--affects grid and post filtering-->
+
+<div id="content-wrapper">	
+<div id="content" class="fade-in">
+{block:Posts}
+
+<div class="box {block:Text}text{/block:Text} {block:Photo}photo{/block:Photo} {block:Photoset}photoset{/block:Photoset} {block:Audio}audio{/block:Audio} {block:Quote}quote{/block:Quote} {block:Link}link{/block:Link} {block:Video}video{/block:Video} {block:HasTags}{block:Tags}{Tag} {/block:Tags}  &nbsp; {/block:HasTags}" 
+style="opacity:0.00001;margin-bottom:calc({text:Gutter Width}px);" >
+
+<div id="tags" style="position:absolute; opacity:0;">{block:HasTags}{block:Tags}{Tag} &nbsp; {/block:Tags}{/block:HasTags}</div>
+
+    <center>
+    {block:Text}
+    <h2>{Title}</h2>
+    <div class="name">{Body}</div>
+    <div id="tags" style="position:absolute; opacity:0;">{block:HasTags}{block:Tags}{Tag} &nbsp; {/block:Tags}{/block:HasTags}</div>
+    {/block:Text}
+
+
+    {block:Photo}
+        <a href="#">
+        <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" 
+        onclick="Tumblr.Lightbox.init([{ width: {PhotoWidth-HighRes}, height: {PhotoHeight-HighRes}, low_res: '{PhotoURL-500}', high_res: '{PhotoURL-HighRes}' }]);
+        $('body').toggleClass('tumblr_lightbox_active'); 
+        return false" />     
+        </a>
+        {Caption}
+    {/block:Photo}
+
+
+        {block:Photoset} 
+            {Caption}
+            <!--preset code to abide by pxu -->
+            <div class="photo-slideshow" id="photoset_{PostID}" data-layout="{PhotosetLayout}" >
+                {block:Photos}
+                    <div class="photo-data">
+                        <div class="pxu-photo">
+                            <img src="{PhotoURL-HighRes}" width="{PhotoWidth-500}" height="{PhotoHeight-500}" data-highres="{PhotoURL-HighRes}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}">
+                        </div>
+                        <a class="tumblr-box" rel="post-{PostID}" href="{PhotoURL-HighRes}">
+                        </a>
+                    </div>
+                {/block:Photos}
+            </div>
+    {/block:Photoset}  
+
+    {block:Audio}
+        {Caption}
+        {AudioPlayerWhite}
+    {/block:Audio}
+    
+    {block:Video}
+        <div style="padding-top:25px;">
+        {Caption}
+            <div style="padding-top:10px;">
+            {Video-500}
+            </div>
+        </div>
+    {/block:Video}
+    </center>
+
+</div>   <!--box-->
+
+{/block:Posts}
+</div>    <!--content -->
+</div>	<!--content wrapper -->
+
+
+
+
+
+
+
+
+
+
+
+<!--FOOTER-->
+<!--don't touch anything in div class="navigation" – affects infinite scrolling-->
+
+<div id="footer">
+    <div class="navigation">
+        {block:Pagination}
+            {block:NextPage}
+                <p id="page_nav">
+                <a id="next" href="{NextPage}" style="float:right; right:2px; bottom:50vh; position:fixed;"  ><i class="fa fa-long-arrow-right"></i></a>
+            {/block:NextPage}
+            {block:PreviousPage}
+                <a href="{PreviousPage}" style="float:left; left:2px; bottom:50vh; position:fixed;" ><i class="fa fa-long-arrow-left"></i></a>
+                </p>
+            {/block:PreviousPage}
+        {/block:Pagination}
+    </div>  
+    
+    {block:IfInfiniteScroll}
+    {block:IfManualInfiniteScroll}        
+    {block:Pagination}     
+        <div class="pagination">
+            <center><button class="load-more" >load more</button> </center>
+        </div>
+    {/block:Pagination}        
+    {/block:IfManualInfiniteScroll} 
+    {/block:IfInfiniteScroll}    
+        
+        <div style="opacity:0.05; text-align:center;">
+        <script type="text/javascript" src="//counter.websiteout.net/js/5/0/0/1"></script>
+        </div>
+        
+        
+</div>  <!--footer -->         
+                
+
+        
+      
+
+
+        
+
+    
+    
+    
+    
+</div> <!--wrapper-->    
+    
+    
+    
+    
+</body>
+    
+</html>
