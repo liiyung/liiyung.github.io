@@ -1,27 +1,22 @@
 
 
 #content-wrapper {
-{block:IndexPage} 
-        min-height:calc(100vh - {text:Header Height} - (2*{text:Header Top and Bottom Gap}) - {text:Footer Height} - 5vh);
-    {block:IfNotHorizontal}
+        min-height:90vh;
         width:100%;
-        margin-top:{text:Space between Header and Content};
-    {/block:IfNotHorizontal}
-{/block:IndexPage}
+        margin-top:10vh;
 }
 
 #content {
-        width:{select:Content Width};
+        width:80vw;
         position:absolute; margin:auto;
 }
 
 .box {
     opacity:1.0;
-    cursor:url('{image:Cursor}'), crosshair;
-    font-family:'{text:Body Font}', '{font:Body Font}', Georgia, 'Times New Roman', Times, serif;
-    font-size:{text:Body Font Size};
+    font-family:'Lora', Georgia, 'Times New Roman', Times, serif;
+    font-size:11px;
     position:relative;
-        width:calc((100% - ({text:Number of Columns} - 1)*{text:Gutter Width}px)/{text:Number of Columns});
+        width:100%;
         opacity:1.0;
          -webkit-transition: opacity 0.8s ease-in-out;
             -moz-transition: opacity 0.8s ease-in-out;
@@ -48,23 +43,17 @@
 /* infinite scrolling */
 
 
-.navigation { display:none!important ; font-family:'{text:Body Font}'; font-size:12px; opacity:0.5;} 
-
-
 #footer {
     width:100%;
     position:relative;
-    height:{block:IfManualInfiniteScroll}100px{/block:IfManualInfiniteScroll} {block:IfNotManualInfiniteScroll}{text:Footer Height}{/block:IfNotManualInfiniteScroll};
     bottom:0px;
     z-index:10;
 }
 
 .pagination {
     z-index:50;
-    {block:IfNotHorizontal}
     margin-top:50px;
     margin-bottom:50px;
-    {/block:IfNotHorizontal}
 }
 
 .load-more {
@@ -84,7 +73,7 @@
 }
 
 .load-more:hover {
-    background:{color:Links};
+    background:#aaa;
     color:{color:Background};
 }
 
@@ -93,12 +82,10 @@
 }
 
 #infscr-loading{
-    {block:IfNotHorizontal}
     position:absolute;
     margin-left:50%;
     margin-right:50%;
     bottom:0px;
-    {/block:IfNotHorizontal}
 }
 
 #infscr-loading img{
