@@ -94,7 +94,7 @@ function resizeVideos() {
 
 
 <!--isotope.js-->
-<!--MAIN FRAMEWORK, DO NOT TOUCH-->
+
 
 <script>
 //main function, called isotope
@@ -161,7 +161,7 @@ var isotope =  $(function(){
             }
         }
         
-{block:IfInfiniteScroll}  
+
 //infinite scroll and callback
         $container.infinitescroll({
             navSelector  : '#page_nav', 
@@ -220,20 +220,19 @@ var isotope =  $(function(){
         });    //end isotope as callback
         
         
-        {block:ifManualInfiniteScroll}
-        //manual infinite scroll
-        {block:IfNotHorizontal}
-        $(window).unbind('.infscr');
-        $('.load-more').click(function(){
-        $container.infinitescroll('retrieve');
-        return false
-        });
-        {/block:IfNotHorizontal}
+
+//         //manual infinite scroll
+//         $(window).unbind('.infscr');
+//         $('.load-more').click(function(){
+//         $container.infinitescroll('retrieve');
+//         return false
+//         });
+
         
         $("#s-m-t-tooltip").css('z-index', '999999999');
 
-        {/block:ifManualInfiniteScroll}
-{/block:IfInfiniteScroll}        
+
+     
         
 // tag filter
 $('#filters').on( 'click', 'button', function() {
@@ -318,82 +317,7 @@ $(document).ready(function(){
 </script>
 
 
-<!--END OF DO NOT TOUCH-->
 
-
-
-
-
-
-
-
-<!--TUMBLR META STUFF-->
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- images/ files upload -->
-<meta name="image:Background" content="" />
-<meta name="image:Header" content="" />  
-
-<meta name="image:Cursor" content="https://static.tumblr.com/iuvoef7/jeMol18eo/small_white_cursor.png" />
-<meta name="image:Custom Font" content="https://static.tumblr.com/iuvoef7/mNnojgowh/jellyka_bees_antique_handwriting.ttf" />
-
-<!-- background colours -->
-<meta name="color:Background" content="#fbfbfb" />
-<meta name="color:Header Background" content="#fbfbfb" />
-
-<!-- font colours -->
-<meta name="color:Header Font" content="#000000" />
-<meta name="color:Body Font" content="#000000" />
-
-<meta name="color:Text highlight" content="#bbbbbb" />
-<meta name="color:Scrollbar" content="#fed3f2"  />
-
-<!-- tumblr preset fonts -->
-<meta name="font:Header Font" content="Arial" />
-<meta name="font:Body Font" content="Baskerville" />
-<meta name="font:Sidebar Font" content="Baskerville" />
-
-<!-- booleans --> <!-- 1=yes, 0=no -->
-<meta name="if:Head Space" content="1" />
-<meta name="if:Infinite Scroll" content="1" />
-<meta name="if:Manual Infinite Scroll" content="0" />
-
-<meta name="select:Content Width" content="30vw" />
-<meta name="select:Content Width" content="10vw" />
-<meta name="select:Content Width" content="20vw" />
-<meta name="select:Content Width" content="40vw" />
-<meta name="select:Content Width" content="50vw" />
-<meta name="select:Content Width" content="60vw" />
-<meta name="select:Content Width" content="70vw" />
-<meta name="select:Content Width" content="80vw" />
-<meta name="select:Content Width" content="90vw" />
-<meta name="select:Content Width" content="100vw" />
-
-<!-- main -->
-<meta name="text:Number of Columns" content="1" />
-<meta name="text:Space between Header and Content" content="0px" />
-<meta name="text:Gutter Width" content="100" />
-<meta name="text:Photoset Gutter Width" content="10" />
-<!-- header and footer -->
-<meta name="text:Header Height" content="350px" />
-<meta name="text:Header Width" content="100%" />
-<meta name="text:Header Top and Bottom Gap" content="0px" />
-<meta name="text:Footer Height" content="100px" />
-
-<!-- fonts -->
-<meta name="text:Header Font" content="Lora"/>
-<meta name="text:Header Font Size" content="50px" />
-<meta name="text:Body Font" content="Lora" /> 
-<meta name="text:Body Font Size" content="14px" />
-<meta name="text:Custom Font Name" content="Jellyka" />
-<!--fonts-->
-<link href='https://fonts.googleapis.com/css?family={text:Body Font}' rel='stylesheet' type='text/css'> 
-<link href='https://fonts.googleapis.com/css?family={text:Header Font}' rel='stylesheet' type='text/css'> 
-<link href='https://fonts.googleapis.com/css?family={text:Sidebar Font}' rel='stylesheet' type='text/css'> 
-
-<link rel="shortcut icon" href="{Favicon}"><link rel="alternate" type="application/rss+xml" href="{RSS}"><link href="https://static.tumblr.com/wgijwsy/k1Hm9ei8b/normalize.css" rel="stylesheet" type="text/css" />
-       
 
 
 
@@ -421,14 +345,11 @@ $(document).ready(function(){
 <!--HEADER-->
 <!--title and search/filter bar-->
 
-{block:IndexPage}    
+   
     <div id="header">
-    {block:IfHeadSpace}
-    <a href="{BlogURL}" style="font-size:{text:Header Font Size};">    <div style="
-    padding-top:calc(({text:Header Height} - {text:Header Font Size})/2);">{Title}    </div></a>
-    {/block:IfHeadSpace}
-    </div>
-{/block:IndexPage}   
+    <a href="{BlogURL}" style="font-size:50px;">    <div style="
+    padding-top:300px;"> Mew   </div></a>
+    </div> 
 
 <div id="filters" class="sticky sort-by-button-group" style="margin-top:0px;">
 <p><input type="text" id="quicksearch" autocomplete="off" style="background:rgba(251,251,251, 0); text-align:center; font-size:11px; " placeholder= "Search"/></p>
@@ -470,7 +391,16 @@ $(document).ready(function(){
 
 <div id="content-wrapper">	
 <div id="content" class="fade-in">
-{block:Posts}
+	
+	<div class="box" style="opacity:0.00001;margin-bottom:10px);background:red;">
+		<center>
+			<h2>sample box</h2>
+		</center>
+	</div>
+	
+	
+	
+<!-- {block:Posts}
 
 <div class="box {block:Text}text{/block:Text} {block:Photo}photo{/block:Photo} {block:Photoset}photoset{/block:Photoset} {block:Audio}audio{/block:Audio} {block:Quote}quote{/block:Quote} {block:Link}link{/block:Link} {block:Video}video{/block:Video} {block:HasTags}{block:Tags}{Tag} {/block:Tags}  &nbsp; {/block:HasTags}" 
 style="opacity:0.00001;margin-bottom:calc({text:Gutter Width}px);" >
@@ -498,7 +428,6 @@ style="opacity:0.00001;margin-bottom:calc({text:Gutter Width}px);" >
 
         {block:Photoset} 
             {Caption}
-            <!--preset code to abide by pxu -->
             <div class="photo-slideshow" id="photoset_{PostID}" data-layout="{PhotosetLayout}" >
                 {block:Photos}
                     <div class="photo-data">
@@ -512,24 +441,15 @@ style="opacity:0.00001;margin-bottom:calc({text:Gutter Width}px);" >
             </div>
     {/block:Photoset}  
 
-    {block:Audio}
-        {Caption}
-        {AudioPlayerWhite}
-    {/block:Audio}
-    
-    {block:Video}
-        <div style="padding-top:25px;">
-        {Caption}
-            <div style="padding-top:10px;">
-            {Video-500}
-            </div>
-        </div>
-    {/block:Video}
+
+
     </center>
 
-</div>   <!--box-->
+</div> 
 
-{/block:Posts}
+{/block:Posts} -->
+	
+
 </div>    <!--content -->
 </div>	<!--content wrapper -->
 
@@ -545,7 +465,7 @@ style="opacity:0.00001;margin-bottom:calc({text:Gutter Width}px);" >
 
 <!--FOOTER-->
 <!--don't touch anything in div class="navigation" – affects infinite scrolling-->
-
+<!-- 
 <div id="footer">
     <div class="navigation">
         {block:Pagination}
