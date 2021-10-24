@@ -46,17 +46,17 @@
 ::selection {background:{color:Text highlight} ;color: #000;}
 ::-moz-selection {background:{color:Text highlight};color: #000;}
 
-a, a:hover, a:visited {cursor:url('{image:Cursor}'), crosshair; text-decoration:none;color:inherit;}
+a, a:hover, a:visited {cursor:url('https://raw.githubusercontent.com/liiyung/liiyung.github.io/main/small_white_cursor.png'), crosshair; text-decoration:none;color:inherit;}
 ul, li {list-style-type: none; font-size:9px; line-height:10px; }
 button:focus {outline:0;}
-a, a:hover, a:visited, li, button, button:hover button:active {cursor:url('{image:Cursor}'), crosshair; border:none; background:transparent; color:#555;}  
+a, a:hover, a:visited, li, button, button:hover button:active {cursor:url('https://raw.githubusercontent.com/liiyung/liiyung.github.io/main/small_white_cursor.png'), crosshair; border:none; background:transparent; color:#555;}  
 p {text-align:center; margin:0px; }
 input {border:none; opacity:0.6;}
 input:focus {outline:0;}
-html {width:100%; font-family:serif; cursor:url('{image:Cursor}'), crosshair;}
+html {width:100%; font-family:serif; cursor:url('https://raw.githubusercontent.com/liiyung/liiyung.github.io/main/small_white_cursor.png'), crosshair;}
 
 body {
-cursor:url('{image:Cursor}'), crosshair;
+cursor:url('https://raw.githubusercontent.com/liiyung/liiyung.github.io/main/small_white_cursor.png'), crosshair;
 background: {color:Background} url('{image:Background}');  
 background-size:cover;
 background-attachment:fixed;
@@ -66,7 +66,7 @@ color:{color:Body Font};
 }
 
 #wrapper {
-    cursor:url('{image:Cursor}'), crosshair;
+    cursor:url('https://raw.githubusercontent.com/liiyung/liiyung.github.io/main/small_white_cursor.png'), crosshair;
     {block:IndexPage}
     {block:IfNotHorizontal} overflow-x:hidden; {block:IfNotHorizontal}
     /*somehow the block:IfNotHorizontal is very important for stickying*/
@@ -74,7 +74,7 @@ color:{color:Body Font};
 }
 
 #header{
-    cursor:url('{image:Cursor}'), crosshair;
+    cursor:url('https://raw.githubusercontent.com/liiyung/liiyung.github.io/main/small_white_cursor.png'), crosshair;
     background:{color:Header Background} url('{image:Header}');  
     background-repeat:no-repeat;
     background-size:cover;
@@ -98,12 +98,12 @@ h2 {
 }
 
 .text {
-    {block:IfNotHorizontal}height:auto; 
-    {block:IfCropTextPost}max-height:300px;{/block:IfCropTextPost} 
-    width:calc((100% - ({text:Number of Columns} - 1)*{text:Gutter Width}px)/{text:Number of Columns});
+    height:auto; 
+/*     {block:IfCropTextPost}max-height:300px;{/block:IfCropTextPost} 
+    width:calc((100% - ({text:Number of Columns} - 1)*{text:Gutter Width}px)/{text:Number of Columns}); */
     white-space: nowrap; 
     overflow:hidden;
-    {/block:IfNotHorizontal}
+
 }
 
 .photo {
@@ -111,8 +111,8 @@ h2 {
 
 .photo img {
     display:block;
-{block:IfNotHorizontal}width:100%;height:100%;{/block:IfNotHorizontal}
-    max-width:{select:Content Width};
+/* {block:IfNotHorizontal}width:100%;height:100%;{/block:IfNotHorizontal}
+    max-width:{select:Content Width}; */
 }
 
 
