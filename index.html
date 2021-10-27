@@ -64,25 +64,48 @@
     
 
 <h1>Isotope - filtering &amp; sorting</h1>
-<h2>Filter</h2>
-<div id="filters" class="flters button-group">  <button class="button is-checked" data-filter="*">show all</button>
-  <button class="button" data-filter=".metal">metal</button>
-  <button class="button" data-filter=".transition">transition</button>
-  <button class="button" data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
-  <button class="button" data-filter=":not(.transition)">not transition</button>
-  <button class="button" data-filter=".metal:not(.transition)">metal but not transition</button>
-  <button class="button" data-filter="numberGreaterThan50">number > 50</button>
-  <button class="button" data-filter="ium">name ends with &ndash;ium</button>
+
+<!------------------    multiple filters div     ------------------>
+<div id="filters">
+  <h2>Filter</h2>  
+  <div class="filters button-group" data-filter-group="base">
+    <button class="button is-checked" data-filter="*" >show all</button>
+    <button class="button" data-filter=".metal">metal</button>
+    <button class="button" data-filter=".transition">transition</button>
+    <button class="button" data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
+    <button class="button" data-filter=":not(.transition)">not transition</button>
+    <button class="button" data-filter=".metal:not(.transition)">metal but not transition</button>
+    <button class="button" data-filter="numberGreaterThan50">number > 50</button>
+    <button class="button" data-filter="ium">name ends with &ndash;ium</button>
+  </div>
+
+  <h3>colour</h3>
+  <div class="filters button-group" data-filter-group="colour">
+    <button class="button is-checked" data-filter="" data-filter-group="colour">any</button>
+    <button class="button" data-filter=".red">red</button>
+    <button class="button" data-filter=".green">green</button>
+  </div>
+
 </div>
 
+
+
+
 <h2>Sort</h2>
-<div id="sorts" class="filters button-group">  <button class="button is-checked" data-sort-by="original-order">original order</button>
+<div id="sorts" class="filters button-group">  
+  <button class="button is-checked" data-sort-by="original-order">original order</button>
   <button class="button" data-sort-by="name">name</button>
   <button class="button" data-sort-by="symbol">symbol</button>
   <button class="button" data-sort-by="number">number</button>
   <button class="button" data-sort-by="weight">weight</button>
   <button class="button" data-sort-by="category">category</button>
 </div>
+
+
+
+
+
+
 
 <div class="grid">
   <div class="element-item transition metal " data-category="transition">
@@ -115,13 +138,13 @@
     <p class="number">79</p>
     <p class="weight">196.967</p>
   </div>
-  <div class="element-item alkali metal " data-category="alkali">
+  <div class="element-item alkali metal red" data-category="alkali">
     <h3 class="name">Potassium</h3>
     <p class="symbol">K</p>
     <p class="number">19</p>
     <p class="weight">39.0983</p>
   </div>
-  <div class="element-item alkali metal " data-category="alkali">
+  <div class="element-item alkali metal red" data-category="alkali">
     <h3 class="name">Sodium</h3>
     <p class="symbol">Na</p>
     <p class="number">11</p>
