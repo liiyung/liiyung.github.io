@@ -34,7 +34,6 @@ function concatValues( obj ) {
 
 
 
-
 // // bind filter button click
 // $('#filters').on( 'click', 'button', function() {
 //   var filterValue = $( this ).attr('data-filter');
@@ -44,24 +43,48 @@ function concatValues( obj ) {
 // });
 
 
+// var A = $( this ).attr('data-filter');
+// A = filterFns[ A ] || A;
+// $grid.isotope({ filter: A });
+
 // multiple filtering
 $('#filters').on( 'click', '.button', function( event ) {
+  // button that is just pressed
   var $button = $( event.currentTarget );
-  // get group key
+  // get group key. activate only buttons that have parent "button-group", with attribute "data-filter-"
   var $buttonGroup = $button.parents('.button-group');
   var filterGroup = $buttonGroup.attr('data-filter-group');
-  // set filter for group
+  // set filter for group, based on which filterGroup
   filters[ filterGroup ] = $button.attr('data-filter');
+
+  ///////////////////// uncertain from here //////////////////////
+  // var A = filters[ filterGroup ]; 
+  filters[ filterGroup ]  = filterFns [filters[ filterGroup ]] || filters[ filterGroup ];
+  $grid.isotope({ filter: filters[ filterGroup ] });
+  var filtercValue = concatValues( filters );
+
+  // filtercValue = filterFns [ filters[ filterGroup ] ] ||  filters[ filterGroup ]
   // combine filters
-  var filterValue = concatValues( filters );
+  
   // value parsing filter
-  filterValue = filterFns[ filterValue ] || filterValue;
+  // filterValue = filterFns[ filterValue ] || filterValue;
   // set filter for Isotope
-  $grid.isotope({ filter: filterValue });
+  $grid.isotope({ filter: filtercValue });
 });
 
 
-// // change is-checked class on buttons
+// change is-checked class on buttons (just behaviour of buttons, not isotope )
+$('.button-group').each( function( i, buttonGroup ) {
+  var $buttonGroup = $( buttonGroup );
+  $buttonGroup.on( 'click', 'button', function( event ) {
+    $buttonGroup.find('.is-checked').removeClass('is-checked');
+    var $button = $( event.currentTarget );
+    $button.addClass('is-checked');
+  });
+});
+
+
+// // change is-checked class on buttons (uncheck currently selected buttongroup, and check THIS buttongroup)
 // $('.button-group').each( function( i, buttonGroup ) {
 //   var $buttonGroup = $( buttonGroup );
 //   $buttonGroup.on( 'click', 'button', function() {
@@ -71,15 +94,15 @@ $('#filters').on( 'click', '.button', function( event ) {
 // });
 
 
-// change is-checked class on buttons (which buttonGroups are selected)
-$('.button-group').each( function( i, buttonGroup ) {
-  var $buttonGroup = $( buttonGroup );
-  $buttonGroup.on( 'click', 'button', function( event ) {
-    $buttonGroup.find('.is-checked').removeClass('is-checked');
-    var $button = $( event.currentTarget );
-    $button.addClass('is-checked');
-  });
-});
+// // change is-checked class on buttons
+// $('.button-group').each( function( i, buttonGroup ) {
+//   var $buttonGroup = $( buttonGroup );
+//   $buttonGroup.on( 'click', 'button', function( event ) {
+//     $buttonGroup.find('.is-checked').removeClass('is-checked');
+//     var $button = $( event.currentTarget );
+//     $button.addClass('is-checked');
+//   });
+// });
 
 
 // parsing filters
