@@ -8,12 +8,12 @@ var isotope =  $(function(){
         var filtercValue;
         var A;
         var sortByValue;
-        var $container = $('.grid');
+        var $grid = $('.grid');
         var $boxes = $('.box').css('opacity','0');
         
         
-        $container.imagesLoaded(function(){
-            $container.isotope({ 
+        $grid.imagesLoaded(function(){
+            $grid.isotope({ 
                 itemSelector : '.box',
                 layoutMode : 'masonry',
                 masonry: {
@@ -78,7 +78,7 @@ $('.filters').on( 'click', 'button', function( event ) {
   // concatenate selected filter values
   filtercValue = concatValues( filters );
   // isotope display results
-  $container.isotope();
+  $grid.isotope();
   return false
 });
 
@@ -102,7 +102,7 @@ $('.button-group').each( function( i, buttonGroup ) {
 // $('#sorts').on( 'click', 'button', function() {
 //   var sortByValue = $(this).attr('data-sort-by');
 //   // sorting
-//   $container.isotope({ sortBy: sortByValue });
+//   $grid.isotope({ sortBy: sortByValue });
 // });
 ////////////////////////////////////// SORTING //////////////////////////////////////
 
@@ -114,7 +114,7 @@ $('.button-group').each( function( i, buttonGroup ) {
 // use value of search field to filter
 var $quicksearch = $('#quicksearch').keyup( debounce( function() {
   qsRegex = new RegExp( $quicksearch.val(), 'gi' );
-  $container.isotope();
+  $grid.isotope();
 }) );
 
 // debounce so filtering doesn't happen every millisecond

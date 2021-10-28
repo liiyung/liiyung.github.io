@@ -1,11 +1,19 @@
+
+
+@font-face{
+    font-family: "Lora";
+    src: url('./Lora.ttf'),
+}
+
 * { 
   box-sizing: border-box; 
   cursor: url(./small_white_cursor.png), auto;
 }
 
+
 body {
-  font-family: sans-serif;
-  background-color: #292929;
+  font-family: "Lora";
+  background-color: #fbfbfb;
   color: #66666f;
 }
 
@@ -71,13 +79,29 @@ body {
 
 .grid {
   border: 1px solid #333;
+  width:80vw;
+  position:absolute; margin:auto;
 }
+
+#quicksearch {
+  font-family: "Lora";
+  color:#aaa; 
+  background:transparent; 
+  border-style: none;
+  z-index:999; 
+  -webkit-transition: 0.8s ease-in-out;
+  -moz-transition: 0.8s ease-in-out;
+  transition: 0.8s ease-in-out;   
+}
+ 
 
 /* clear fix */
 .grid:after {
   content: '';
   display: block;
   clear: both;
+  width:80vw;
+  position:absolute; margin:auto;
 }
 
 /* ---- .box ---- */
@@ -85,12 +109,16 @@ body {
 .box {
   position: relative;
   float: left;
-  width: 100px;
+  display: block;
+  text-align: center;
+  width: 45%;
   height: 100px;
-  margin: 5px;
-  padding: 10px;
+  margin: auto;
   background: #888;
   color: #262524;
+ -webkit-transition: opacity 0.8s ease-in-out;
+  -moz-transition: opacity 0.8s ease-in-out;
+       transition: opacity 0.8s ease-in-out;
 }
 
 .box > * {
@@ -100,7 +128,6 @@ body {
 
 .box .name {
   position: absolute;
-
   left: 10px;
   top: 60px;
   text-transform: none;
