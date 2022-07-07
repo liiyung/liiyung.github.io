@@ -17,6 +17,10 @@ body {
   color: #66666f;
 }
 
+
+input, input:hover, input:focus, p:focus {border: none !important;}
+
+
 /* ---- button ---- */
 
 .button {
