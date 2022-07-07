@@ -15,10 +15,13 @@ var isotope =  $(function(){
         $grid.imagesLoaded(function(){
             $grid.isotope({ 
                 itemSelector : '.box',
-                layoutMode : 'masonry',
+                layoutMode : 'vertical',
                 masonry: {
                     gutter: 10,
                 },
+                vertical: {
+                    horizontalAlignment: 0.5,
+                }
                 getSortData: {
                   name: '.name',
                   symbol: '.symbol',

@@ -78,10 +78,21 @@ body {
 /* ---- isotope ---- */
 
 .grid {
-  border: 1px solid #333;
+/*  background: cyan;*/
+  border: none;
+  width:80vw;
+  position:absolute; left: 0; right: 0; margin:auto;
+}
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
   width:80vw;
   position:absolute; margin:auto;
 }
+
 
 #quicksearch {
   font-family: "Lora";
@@ -95,35 +106,25 @@ body {
 }
  
 
-/* clear fix */
-.grid:after {
-  content: '';
-  display: block;
-  clear: both;
-  width:80vw;
-  position:absolute; margin:auto;
-}
-
 /* ---- .box ---- */
 
 .box {
   position: relative;
-  float: left;
+  float: center;
   display: block;
   text-align: center;
-  width: 45%;
-  height: 100px;
+  max-width: 80vw;
+  max-height: 100vh;
   margin: auto;
-  background: #888;
-  color: #262524;
+  color: #66666f;
  -webkit-transition: opacity 0.8s ease-in-out;
   -moz-transition: opacity 0.8s ease-in-out;
        transition: opacity 0.8s ease-in-out;
 }
 
 .box > * {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
 }
 
 .box .name {
