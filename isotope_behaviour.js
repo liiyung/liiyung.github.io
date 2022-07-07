@@ -21,7 +21,7 @@ var isotope =  $(function(){
                 },
                 vertical: {
                     horizontalAlignment: 0.5,
-                }
+                },
                 getSortData: {
                   name: '.name',
                   symbol: '.symbol',
